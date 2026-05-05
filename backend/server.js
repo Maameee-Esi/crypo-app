@@ -23,6 +23,11 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+// Simple route to verify backend is running
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend is running live!' });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes); // User profile
