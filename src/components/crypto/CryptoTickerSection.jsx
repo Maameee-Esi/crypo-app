@@ -1,5 +1,5 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { api } from "../../lib/api";
 
 const CryptoTickerSection = () => {
   const [activeTab, setActiveTab] = useState("tradable");
@@ -13,15 +13,15 @@ const CryptoTickerSection = () => {
         setLoading(true);
         setError(null);
 
-        let endpoint = "/crypto";
+        let url = "http://localhost:5000/api/crypto";
 
         if (activeTab === "gainers") {
-          endpoint = "/crypto/gainers";
+          url = "http://localhost:5000/api/crypto/gainers";
         } else if (activeTab === "new") {
-          endpoint = "/crypto/new";
+          url = "http://localhost:5000/api/crypto/new";
         }
 
-        const response = await api.get(endpoint);
+        const response = await axios.get(url);
         
         if (response.data.success) {
           // Map backend fields to what the UI expects, or update UI to use backend fields
@@ -49,24 +49,24 @@ const CryptoTickerSection = () => {
   }, [activeTab]);
 
   return (
-    <div className="w-full bg-gray-50 py-8 sm:py-10 md:py-12 lg:py-16">
+    <div className="w-full bg-gray-10 py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Main Container - Responsive Flex */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 items-start lg:items-center">
           {/* Left Content Section */}
           <div className="w-full lg:w-1/2 flex flex-col gap-4 sm:gap-5 md:gap-6">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold leading-tight text-gray-100">
               Explore crypto like Bitcoin, Ethereum, and Dogecoin.
             </h2>
 
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p className="text-gray-60 text-sm sm:text-base md:text-lg leading-relaxed">
               Simply and securely buy, sell, and manage hundreds of
               cryptocurrencies.
             </p>
 
             <button
               type="button"
-              className="py-2.5 sm:py-3 px-5 sm:px-6 w-fit rounded-full bg-black text-white font-bold text-sm sm:text-base hover:bg-gray-800 transition-colors shadow-lg"
+              className="py-2.5 sm:py-3 px-5 sm:px-6 w-fit rounded-full bg-gray-100 text-white font-bold text-sm sm:text-base hover:opacity-90 transition-colors shadow-lg"
             >
               See more assets
             </button>
@@ -74,7 +74,7 @@ const CryptoTickerSection = () => {
 
           {/* Right Crypto Card Section */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm md:max-w-md lg:max-w-xl bg-black rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl">
+            <div className="w-full max-w-sm md:max-w-md lg:max-w-xl bg-gray-100 rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl">
               {/* Tab Navigation */}
               <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 overflow-x-auto pb-2">
                 {["tradable", "gainers", "new"].map((tab) => (
@@ -85,7 +85,7 @@ const CryptoTickerSection = () => {
                     className={`font-bold text-sm sm:text-base whitespace-nowrap pb-2 border-b-2 transition-all ${
                       activeTab === tab
                         ? "text-white border-white"
-                        : "text-gray-400 border-transparent hover:text-gray-300"
+                        : "text-gray-40 border-transparent hover:text-gray-20"
                     }`}
                   >
                     {tab === "tradable" && "Tradable"}
@@ -98,17 +98,17 @@ const CryptoTickerSection = () => {
               {/* Crypto List */}
               <div className="space-y-2 md:space-y-3">
                 {loading && (
-                  <p className="text-gray-400 text-sm md:text-base text-center py-4">
+                  <p className="text-gray-40 text-sm md:text-base text-center py-4">
                     Loading...
                   </p>
                 )}
                 {error && (
-                  <p className="text-red-400 text-sm md:text-base text-center py-4">
+                  <p className="text-red-60 text-sm md:text-base text-center py-4">
                     {error}
                   </p>
                 )}
                 {!loading && !error && cryptos.length === 0 && (
-                  <p className="text-gray-400 text-sm md:text-base text-center py-4">
+                  <p className="text-gray-40 text-sm md:text-base text-center py-4">
                     No data available
                   </p>
                 )}
@@ -117,7 +117,7 @@ const CryptoTickerSection = () => {
                   cryptos.map((crypto) => (
                     <div
                       key={crypto.id}
-                      className="flex items-center justify-between py-2 sm:py-3 md:py-4 px-2 sm:px-3 md:px-4 rounded-lg hover:bg-gray-900 transition-colors"
+                      className="flex items-center justify-between py-2 sm:py-3 md:py-4 px-2 sm:px-3 md:px-4 rounded-lg hover:bg-gray-80 transition-colors"
                     >
                       <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                         <img
@@ -129,7 +129,7 @@ const CryptoTickerSection = () => {
                           <p className="text-white font-semibold text-sm sm:text-base truncate">
                             {crypto.name}
                           </p>
-                          <p className="text-gray-400 text-xs hidden sm:block">
+                          <p className="text-gray-40 text-xs hidden sm:block">
                             {crypto.symbol.toUpperCase()}
                           </p>
                         </div>
@@ -146,8 +146,8 @@ const CryptoTickerSection = () => {
                         <p
                           className={`text-xs sm:text-sm font-semibold ${
                             crypto.price_change_percentage_24h >= 0
-                              ? "text-green-400"
-                              : "text-red-400"
+                              ? "text-green-60"
+                              : "text-red-60"
                           }`}
                         >
                           {crypto.price_change_percentage_24h >= 0

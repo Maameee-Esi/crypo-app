@@ -17,10 +17,10 @@ const GridSection = () => {
             className="rounded-[45px]"
           />
           <div className="flex flex-col mt-20 gap-5">
-            <p className="text-5xl leading-tight font-serif">
+            <p className="text-5xl leading-tight font-serif text-gray-100">
               Powerful tools, designed <br /> for the advanced trader.
             </p>
-            <p className="text-gray-500">
+            <p className="text-gray-60">
               Powerful analytical tools with the safety and security of Coinbase{" "}
               <br />
               deliver the ultimate trading experience. Tap into sophisticated{" "}
@@ -42,13 +42,13 @@ const GridSection = () => {
 
       <div className="w-fit gap-45 flex flex-row mb-30">
         <div className="gap-3 flex flex-col justify-center">
-          <p className="py-2 px-5 border rounded-2xl text-gray-500 border-gray-500 w-50">
+          <p className="py-2 px-5 border rounded-2xl text-gray-60 border-gray-40 w-50">
             <span className="mr-5">C</span>COINBASE ONE
           </p>
-          <p className="text-5xl leading-tight font-serif">
+          <p className="text-5xl leading-tight font-serif text-gray-100">
             Zero trading fees, <br /> more rewards.
           </p>
-          <p>
+          <p className="text-gray-60">
             Get more out of crypto with one membership: zero trading fees,{" "}
             <br />
             boosted rewards, priority support, and more.
@@ -60,7 +60,7 @@ const GridSection = () => {
             Claim free trial
           </button>
         </div>
-        <div className=" bg-gray-200 rounded-[45px] w-130 h-120 flex ">
+        <div className=" bg-gray-10 rounded-[45px] w-130 h-120 flex ">
           <img
             src={ZeroFees}
             alt="Zero Fees"
@@ -73,7 +73,7 @@ const GridSection = () => {
       </div>
       {/*Third Section*/}
       <div className="w-fit gap-45 flex flex-row mb-30">
-        <div className=" bg-gray-200 rounded-[45px] w-130 h-120 flex ">
+        <div className=" bg-gray-10 rounded-[45px] w-130 h-120 flex ">
           <img
             src={CB}
             alt="Zero Fees"
@@ -84,13 +84,13 @@ const GridSection = () => {
           />{" "}
         </div>
         <div className="gap-3 flex flex-col justify-center">
-          <p className="py-2 px-5 border rounded-2xl text-gray-500 border-gray-500 w-50">
+          <p className="py-2 px-5 border rounded-2xl text-gray-60 border-gray-40 w-50">
             <span className="mr-5">C</span>BASE APP
           </p>
-          <p className="text-5xl leading-tight font-serif">
+          <p className="text-5xl leading-tight font-serif text-gray-100">
             Countless ways to earn <br /> crypto with the Base App.
           </p>
-          <p>
+          <p className="text-gray-60">
             An everything app to trade, create, discover, and chat, all in one{" "}
             <br />
             place.

@@ -7,7 +7,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Environment variables documentation:
-# Set VITE_API_URL in Netlify Environment Variables (Site settings > Environment variables)
-# Value: https://crypo-app.onrender.com/api

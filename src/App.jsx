@@ -1,29 +1,40 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AssetDetail from "./pages/AssetDetail.jsx";
-import Explore from "./pages/Explore.jsx";
-import Home from "./pages/Home.jsx";
-import Learn from "./pages/Learn.jsx";
-import SignIn from "./pages/SignIn.jsx";
-import SignUp from "./pages/SignUp.jsx";
-import Profile from "./pages/Profile.jsx";
-import WarningBanner from "./components/layout/WarningBanner.jsx";
+import { Routes, Route } from 'react-router-dom';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Home from './pages/Home';
+import Explore from './pages/Explore';
+import Learn from './pages/Learn';
+import AssetDetail from './pages/AssetDetail';
+import AccountTypeSelect from './pages/AccountTypeSelect';
+import Profile from './pages/Profile';
+import WarningBanner from './components/layout/WarningBanner';
+import ProtectedRoute from './components/ProtectedRoute';
 
-function App() {
+const App = () => {
   return (
-    <BrowserRouter>
+    <>
       <WarningBanner />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/asset/:id" element={<AssetDetail />} />
         <Route path="/learn" element={<Learn />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/account-type" element={<AccountTypeSelect />} />
+
+        {/* Protected — requires JWT */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
-    </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;

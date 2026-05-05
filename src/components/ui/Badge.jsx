@@ -1,9 +1,7 @@
-import React from "react";
-
-const Badge = ({ children, className = "" }) => {
-  return (
-    <span
-      className={`
+const Badge = ({ children, className = '' }) => {
+	return (
+		<span
+			className={`
         inline-flex items-center gap-1.5
         px-3 py-1.5
         rounded-pill
@@ -12,10 +10,10 @@ const Badge = ({ children, className = "" }) => {
         bg-white
         ${className}
       `}
-    >
-      {children}
-    </span>
-  );
+		>
+			{children}
+		</span>
+	);
 };
 
 export default Badge;

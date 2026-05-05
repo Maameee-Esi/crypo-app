@@ -10,10 +10,10 @@ const HomeSignUpSection = () => {
         {/* New wrapper for text and image */}
         <div className="pl-60  flex flex-col gap-5 justify-center items-center">
           <div>
-            <p className="text-7xl leading-tight font-serif">
+            <p className="text-7xl leading-tight font-serif text-gray-100">
               Take control <br /> of your money
             </p>
-            <p className="text-2xl gap-20">
+            <p className="text-2xl gap-20 text-gray-100">
               {" "}
               {/* Added text-blue-600 underline */}
               Start your portfolio today and discover crypto
@@ -23,11 +23,11 @@ const HomeSignUpSection = () => {
             <input
               type="email"
               placeholder="satoshinakamoto.com"
-              className="border py-3 pl-5 pr-40 rounded-2xl"
+              className="border border-gray-20 py-3 pl-5 pr-40 rounded-2xl text-gray-100 placeholder-gray-40"
             />
             <button
               type="button"
-              className="bg-blue-600 text-white font-black w-fit py-5 px-8 rounded-full"
+              className="bg-blue-60 text-white font-black w-fit py-5 px-8 rounded-full"
             >
               Sign up
             </button>
@@ -47,11 +47,11 @@ const HomeSignUpSection = () => {
         </div>
       </div>
       <div className="flex flex-col text-center mt-50 px-120">
-        <p className="text-base text-gray-700">
+        <p className="text-base text-gray-60">
           DEX trading is offered by Coinbase Bermuda Technologies Ltd.
         </p>{" "}
         {/* Increased size to text-base, darkened color to text-gray-700 */}
-        <p className="text-sm text-gray-600 mt-2">
+        <p className="text-sm text-gray-60 mt-2">
           {" "}
           {/* Increased size to text-sm, darkened color to text-gray-600 */}
           Products and features may not be available in all regions. Information
