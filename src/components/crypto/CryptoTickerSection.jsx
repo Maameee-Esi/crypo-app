@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { api } from "../../lib/api";
 
 const CryptoTickerSection = () => {
   const [activeTab, setActiveTab] = useState("tradable");
@@ -13,15 +13,15 @@ const CryptoTickerSection = () => {
         setLoading(true);
         setError(null);
 
-        let url = "http://localhost:5000/api/crypto";
+        let endpoint = "/crypto";
 
         if (activeTab === "gainers") {
-          url = "http://localhost:5000/api/crypto/gainers";
+          endpoint = "/crypto/gainers";
         } else if (activeTab === "new") {
-          url = "http://localhost:5000/api/crypto/new";
+          endpoint = "/crypto/new";
         }
 
-        const response = await axios.get(url);
+        const response = await api.get(endpoint);
         
         if (response.data.success) {
           // Map backend fields to what the UI expects, or update UI to use backend fields
